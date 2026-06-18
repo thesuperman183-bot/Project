@@ -1,0 +1,147 @@
+{
+  "theme": "LIGHT (default) with DARK mode support",
+  "archetype": "Archetype 1 (Organic & Earthy) mixed with Minimalistic Futurism",
+  "design_philosophy": "A future quantum researcher exploring technology from within a peaceful misty forest. Minimalist, Futuristic, Elegant, Nature-inspired. Glassmorphism 2.0 with functional depth and organic layouts.",
+  "colors": {
+    "light": {
+      "background": "#F8FAF9",
+      "text_primary": "#1A362B",
+      "text_secondary": "#4A665A",
+      "accent": "#7A9E9F",
+      "glass_bg": "rgba(255, 255, 255, 0.4)",
+      "glass_border": "rgba(255, 255, 255, 0.6)",
+      "glow": "rgba(122, 158, 159, 0.3)"
+    },
+    "dark": {
+      "background": "#0B131E",
+      "text_primary": "#E2E8F0",
+      "text_secondary": "#94A3B8",
+      "accent": "#8BE9FD",
+      "glass_bg": "rgba(15, 37, 34, 0.4)",
+      "glass_border": "rgba(255, 255, 255, 0.1)",
+      "glow": "rgba(139, 233, 253, 0.2)"
+    }
+  },
+  "typography": {
+    "headings": {
+      "family": "'Outfit', sans-serif",
+      "weight": "font-light to font-medium",
+      "tracking": "tracking-tight",
+      "style": "Subtle rustic glow (text-shadow) - slight silver, pale blue, or soft white illumination."
+    },
+    "body": {
+      "family": "'DM Sans', sans-serif",
+      "weight": "font-normal",
+      "tracking": "tracking-normal"
+    }
+  },
+  "spacing_and_layout": {
+    "philosophy": "Generous Spacing, Organic asymmetry. Bento styles for projects and strengths.",
+    "container_padding": "p-8 md:p-12 lg:p-16",
+    "border_radius": "rounded-[2rem] for large cards, rounded-full for buttons/tags"
+  },
+  "surfaces_and_glassmorphism": {
+    "cards": "Optical Clarity glass. backdrop-blur-xl, subtle 1px border. Shadow: shadow-[0_8px_32px_rgba(0,0,0,0.08)]",
+    "buttons": "Smooth pill-shaped (rounded-full). Hover transforms (hover:scale-105, hover:-translate-y-1) with soft shadow.",
+    "nav": "Sticky header with crystal glassmorphism (backdrop-blur-2xl, semi-transparent background) and dark mode toggle."
+  },
+  "motion_and_interactions": {
+    "global": "Smooth scrolling. Scroll reveal staggered entrance animations.",
+    "background_light": "Animated misty forest: Full-screen fixed background image. Use framer-motion to slowly translate fog layers (blurred, low-opacity white/cyan divs) horizontally to create drifting fog and subtle parallax.",
+    "background_dark": "Animated moonlit forest: Full-screen fixed background image. Deep blue gradients. Generate small glowing divs that animate opacity (blink) and translate slightly (drift) to act as fireflies.",
+    "progress_bars": "Animate width from 0% to target% on scroll intersection (framer-motion or useInView).",
+    "timeline": "Vertical animated timeline. Line drawn downwards as user scrolls, dots glowing upon reaching them."
+  },
+  "media_urls": {
+    "profile_image": {
+      "url": "https://customer-assets.emergentagent.com/job_future-researcher/artifacts/dopy4agn_1000171204.jpg",
+      "description": "Aditya Anand Profile Picture",
+      "usage": "Hero section avatar"
+    },
+    "certificates": [
+      {
+        "title": "Python Quick Start",
+        "url": "https://customer-assets.emergentagent.com/job_future-researcher/artifacts/s90hpb1m_CertificateOfCompletion_Python%20Quick%20Start%20%281%29_page-0001.jpg"
+      },
+      {
+        "title": "ADCA",
+        "url": "https://customer-assets.emergentagent.com/job_future-researcher/artifacts/asjtpnjd_certificate-ADITYA-ANAND-SO-BASHISHTH-KUMAR-SINGH-CNPLPMFJCQ%20%281%29_page-0001.jpg"
+      }
+    ],
+    "backgrounds": {
+      "light_mode_forest": {
+        "url": "https://images.unsplash.com/photo-1529333110658-26b4cf759641?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2OTV8MHwxfHNlYXJjaHwxfHxtaXN0eSUyMGZvcmVzdCUyMHNpbGhvdWV0dGUlMjBtaW5pbWFsfGVufDB8fHx8MTc4MTgxMTgyNHww&ixlib=rb-4.1.0&q=85",
+        "usage": "Static/Parallax base image for the light mode background (Misty forest)"
+      },
+      "dark_mode_forest": {
+        "url": "https://images.pexels.com/photos/3691531/pexels-photo-3691531.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "usage": "Static/Parallax base image for the dark mode background (Moonlit night sky over forest)"
+      }
+    }
+  },
+  "sections": [
+    {
+      "name": "Hero",
+      "content": "Aditya Anand, B.Tech CSE AI&ML student, future quantum researcher.",
+      "components": "Profile photo, Name (large text, subtle glow), Tagline, Pill buttons (Resume: 'Resume under construction' / Contact)"
+    },
+    {
+      "name": "About Me",
+      "content": "Brief intro + Interests as floating rounded tags.",
+      "components": "Glass text card, Flex-wrap pill tags for interests."
+    },
+    {
+      "name": "Core Strengths",
+      "content": "3 cards: Curiosity, Self-Belief, Mindfulness",
+      "components": "3-col bento grid, Glass cards with subtle icons."
+    },
+    {
+      "name": "Current Learning Journey",
+      "content": "programming/math/AI/quantum",
+      "components": "List of skills grouped by category, with animated progress bars (framer-motion)."
+    },
+    {
+      "name": "Achievements & Certifications",
+      "content": "Python Quick Start, ADCA",
+      "components": "Image cards displaying the certificate media_urls inside a glass container."
+    },
+    {
+      "name": "Why Consider Me",
+      "content": "Reasons to hire/collaborate.",
+      "components": "Glass cards layout."
+    },
+    {
+      "name": "Future Roadmap",
+      "content": "Interactive timeline of goals.",
+      "components": "Vertical animated timeline with glowing markers."
+    },
+    {
+      "name": "Projects",
+      "content": "Current and upcoming projects.",
+      "components": "Grid of rounded frosted glass cards."
+    },
+    {
+      "name": "Contact",
+      "content": "LinkedIn, Email, WhatsApp",
+      "components": "LinkedIn (https://www.linkedin.com/in/adityaanand-quant), Email (thesuperman183@gmail.com), WhatsApp (9852767442). Big pill buttons."
+    },
+    {
+      "name": "Footer",
+      "content": "Copyright + Back-to-top button.",
+      "components": "Minimalist center-aligned footer with glass separator."
+    }
+  ],
+  "accessibility_and_testing": {
+    "data_testid_rule": "All interactive and key informational elements MUST include a `data-testid` attribute (kebab-case, role-based). Examples: `data-testid=\"nav-contact-link\"`, `data-testid=\"hero-resume-button\"`.",
+    "contrast": "Ensure text over frosted glass meets APCA/WCAG standards. Use text-shadow for better legibility where needed."
+  },
+  "instructions_to_main_agent": [
+    "Install and use `framer-motion` extensively for scroll reveals, parallax, and the background mist/fireflies animations.",
+    "Implement a Dark Mode toggle in the sticky nav that switches between the light forest and dark forest backgrounds and their respective overlay animations (mist vs fireflies).",
+    "For the misty forest background (Light Mode), layer the provided light background image with moving semi-transparent white/cyan divs (blurred via backdrop-blur or CSS filter) to simulate drifting fog.",
+    "For the dark mode, use the provided dark forest background image and generate random small glowing divs that animate opacity (blink) and translate slightly (drift) to act as fireflies.",
+    "Do NOT use placeholder images. Use ONLY the media URLs provided in this JSON.",
+    "Ensure the UI uses highly rounded components (`rounded-[2rem]` for cards, `rounded-full` for buttons) and prominent glassmorphism (backdrop-blur, slight borders, semi-transparent backgrounds).",
+    "Headings must have a subtle text-shadow (glow) as requested: light mode (silver/pale blue), dark mode (soft white)."
+  ]
+}
