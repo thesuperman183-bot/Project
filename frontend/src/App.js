@@ -1,54 +1,63 @@
-import { useEffect } from "react";
-import "@/App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import axios from "axios";
-import { HOME } from "@/constants/testIds";
+import { useEffect, useState } from "react";
+import "./App.css";
+import Background from "./components/portfolio/Background";
+import Navbar from "./components/portfolio/Navbar";
+import Hero from "./components/portfolio/Hero";
+import About from "./components/portfolio/About";
+import Strengths from "./components/portfolio/Strengths";
+import Learning from "./components/portfolio/Learning";
+import Certifications from "./components/portfolio/Certifications";
+import WhyMe from "./components/portfolio/WhyMe";
+import Roadmap from "./components/portfolio/Roadmap";
+import Projects from "./components/portfolio/Projects";
+import Contact from "./components/portfolio/Contact";
+import Footer from "./components/portfolio/Footer";
+import { Toaster } from "sonner";
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
-
-const Home = () => {
-  const helloWorldApi = async () => {
-    try {
-      const response = await axios.get(`${API}/`);
-      console.log(response.data.message);
-    } catch (e) {
-      console.error(e, `errored out requesting / api`);
-    }
-  };
+function App() {
+  const [dark, setDark] = useState(false);
 
   useEffect(() => {
-    helloWorldApi();
+    const root = document.documentElement;
+    if (dark) root.classList.add("dark");
+    else root.classList.remove("dark");
+  }, [dark]);
+
+  // Scroll-reveal observer
+  useEffect(() => {
+    const els = document.querySelectorAll(".reveal");
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("in");
+            io.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
   }, []);
 
   return (
-    <div>
-      <header className="App-header">
-        <a
-          data-testid={HOME.emergentLink}
-          className="App-link"
-          href="https://emergent.sh"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="https://avatars.githubusercontent.com/in/1201222?s=120&u=2686cf91179bbafbc7a71bfbc43004cf9ae1acea&v=4" />
-        </a>
-        <p className="mt-5">Building something incredible ~!</p>
-      </header>
-    </div>
-  );
-};
-
-function App() {
-  return (
-    <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />}>
-            <Route index element={<Home />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+    <div className="App font-body" data-testid="portfolio-root">
+      <Background dark={dark} />
+      <Navbar dark={dark} onToggleDark={() => setDark((d) => !d)} />
+      <main className="relative z-10">
+        <Hero />
+        <About />
+        <Strengths />
+        <Learning />
+        <Certifications />
+        <WhyMe />
+        <Roadmap />
+        <Projects />
+        <Contact />
+      </main>
+      <Footer />
+      <Toaster richColors position="bottom-right" />
     </div>
   );
 }

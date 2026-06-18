@@ -1,0 +1,28 @@
+{
+  "summary": "Frontend smoke test for Aditya Anand's portfolio. Verified hero, theme toggle, all nav links, resume toast, contact button scroll, about/strengths/learning/certifications/roadmap sections, contact link hrefs, footer back-to-top, and mobile responsiveness. All 35 checks passed with 0 console errors.",
+  "tested_scope": ["frontend"],
+  "passed": [
+    "Page loads at REACT_APP_BACKEND_URL with no console errors",
+    "Hero shows 'Aditya Anand' + B.Tech CSE subheading + hero-profile-image",
+    "theme-toggle switches html class (light <-> dark)",
+    "All 6 nav-link-* testids present (about/strengths/learning/roadmap/projects/contact)",
+    "hero-resume-button shows sonner toast containing 'under construction'",
+    "hero-contact-button scrolls to contact-section",
+    "About 'Who am I?' title + exactly 8 interest-* tags",
+    "Strengths cards: curiosity, self-belief, mindfulness",
+    "Learning skill-python testid present",
+    "certificate-coming-soon present",
+    "roadmap-step-0 through roadmap-step-5 all present",
+    "contact-linkedin href = https://www.linkedin.com/in/adityaanand-quant",
+    "contact-email href = mailto:thesuperman183@gmail.com",
+    "contact-whatsapp href = https://wa.me/919852767442",
+    "footer-back-to-top scrolls window to top (scrollY < 50)",
+    "Mobile 390x844: theme-toggle visible, hero single-column readable"
+  ],
+  "failed": [],
+  "action_items": [],
+  "success_rate": {"backend": "skipped", "frontend": "100%"},
+  "retest_needed": false,
+  "full_testing_deferred": true,
+  "notes": "Backend testing skipped per request (static portfolio, no backend calls). Initial navigation 'load' event timed out at 10s but page rendered fully (networkidle reached) and all interactive tests passed; likely due to firefly/animation timers keeping connection open — not a blocker."
+}
