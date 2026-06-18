@@ -27,7 +27,7 @@ export default function Background({ dark }) {
       data-testid="animated-background"
       className="fixed inset-0 -z-0 overflow-hidden pointer-events-none"
     >
-      {/* Light mode: misty forest */}
+      {/* Light mode: rustic dark forest with flowing mist */}
       <div
         className="absolute inset-0 transition-opacity duration-[1200ms]"
         style={{ opacity: dark ? 0 : 1 }}
@@ -36,42 +36,62 @@ export default function Background({ dark }) {
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage: `url(${LIGHT_BG})`,
-            filter: "blur(2px) saturate(0.95) brightness(1.04)",
-            transform: "scale(1.05)",
+            filter: "blur(2px) saturate(0.85) brightness(0.78) contrast(1.08)",
+            transform: "scale(1.06)",
           }}
         />
-        {/* Gradient wash so text stays readable */}
+        {/* Rustic forest gradient — deeper greens & earthy tones at top, lighter at bottom */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(180deg, rgba(248,250,249,0.55) 0%, rgba(248,250,249,0.7) 40%, rgba(232,239,236,0.85) 100%)",
+              "linear-gradient(180deg, rgba(20,42,32,0.55) 0%, rgba(38,64,52,0.38) 30%, rgba(80,108,94,0.30) 60%, rgba(210,222,216,0.55) 100%)",
           }}
         />
-        {/* Drifting fog layers */}
+        {/* Readability wash for content area */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse 90% 70% at 50% 65%, rgba(240,244,240,0.55), transparent 70%)",
+          }}
+        />
+        {/* Continuously flowing mist — three layers at different speeds, subtle */}
         <div
           className="absolute -inset-[20%]"
           style={{
             background:
-              "radial-gradient(ellipse at 30% 30%, rgba(255,255,255,0.6), transparent 55%)",
+              "radial-gradient(ellipse 45% 28% at 20% 35%, rgba(255,255,255,0.55), transparent 65%), radial-gradient(ellipse 40% 25% at 80% 60%, rgba(230,238,236,0.45), transparent 70%)",
             filter: "blur(40px)",
-            animation: "fogDrift1 28s ease-in-out infinite",
+            animation: "mistFlow1 36s linear infinite",
+            opacity: 0.85,
           }}
         />
         <div
           className="absolute -inset-[20%]"
           style={{
             background:
-              "radial-gradient(ellipse at 70% 60%, rgba(180,210,210,0.45), transparent 60%)",
-            filter: "blur(60px)",
-            animation: "fogDrift2 38s ease-in-out infinite",
+              "radial-gradient(ellipse 50% 30% at 65% 25%, rgba(255,255,255,0.45), transparent 70%), radial-gradient(ellipse 35% 22% at 25% 75%, rgba(220,232,232,0.4), transparent 70%)",
+            filter: "blur(55px)",
+            animation: "mistFlow2 56s linear infinite",
+            opacity: 0.75,
+          }}
+        />
+        <div
+          className="absolute -inset-[25%]"
+          style={{
+            background:
+              "radial-gradient(ellipse 60% 38% at 50% 55%, rgba(255,255,255,0.32), transparent 75%)",
+            filter: "blur(80px)",
+            animation: "mistFlow3 80s linear infinite",
+            opacity: 0.7,
           }}
         />
         <div
           className="absolute -inset-[20%]"
           style={{
             background:
-              "radial-gradient(circle at 50% 100%, rgba(122,158,159,0.18), transparent 60%)",
+              "radial-gradient(circle at 50% 100%, rgba(122,158,159,0.20), transparent 60%)",
             filter: "blur(80px)",
             animation: "pulseSlow 12s ease-in-out infinite",
           }}

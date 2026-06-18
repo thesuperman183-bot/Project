@@ -182,7 +182,7 @@ a, button, .pill { cursor: pointer; }
     100% { transform: translate(0, 0); }
 }
 
-/* Fog */
+/* Fog (legacy) */
 @keyframes fogDrift1 {
     0% { transform: translateX(-15%) translateY(0); }
     50% { transform: translateX(15%) translateY(-2%); }
@@ -192,6 +192,20 @@ a, button, .pill { cursor: pointer; }
     0% { transform: translateX(20%) translateY(2%); }
     50% { transform: translateX(-10%) translateY(0); }
     100% { transform: translateX(20%) translateY(2%); }
+}
+
+/* Continuous flowing mist — wraps around so it feels like air always moving */
+@keyframes mistFlow1 {
+    0%   { transform: translate3d(-25%, 0%, 0); }
+    100% { transform: translate3d(25%, -3%, 0); }
+}
+@keyframes mistFlow2 {
+    0%   { transform: translate3d(20%, 2%, 0); }
+    100% { transform: translate3d(-25%, -2%, 0); }
+}
+@keyframes mistFlow3 {
+    0%   { transform: translate3d(-15%, 3%, 0) scale(1.05); }
+    100% { transform: translate3d(15%, -3%, 0) scale(1.1); }
 }
 @keyframes pulseSlow {
     0%, 100% { opacity: 0.55; }

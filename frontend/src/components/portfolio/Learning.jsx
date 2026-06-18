@@ -22,6 +22,7 @@ const GROUPS = [
   {
     icon: BrainCircuit,
     title: "Artificial Intelligence",
+    hideNumber: true,
     items: [
       { name: "Machine Learning", pct: 20, level: "Learning" },
       { name: "AI Fundamentals", pct: 20, level: "Learning" },
@@ -30,6 +31,7 @@ const GROUPS = [
   {
     icon: Atom,
     title: "Quantum Technologies",
+    hideNumber: true,
     items: [
       { name: "Qiskit", pct: 20, level: "Learning" },
       { name: "Quantum Computing Fundamentals", pct: 20, level: "Learning" },
@@ -38,7 +40,7 @@ const GROUPS = [
   },
 ];
 
-function Bar({ name, pct, level, animate }) {
+function Bar({ name, pct, level, animate, hideNumber }) {
   return (
     <li className="space-y-2" data-testid={`skill-${name.toLowerCase().replace(/\s+/g, "-")}`}>
       <div className="flex items-baseline justify-between gap-3">
@@ -49,7 +51,7 @@ function Bar({ name, pct, level, animate }) {
           className="text-[11px] tracking-wider uppercase"
           style={{ color: "var(--text-2)" }}
         >
-          {level} · {pct}%
+          {hideNumber ? level : `${level} · ${pct}%`}
         </span>
       </div>
       <div
@@ -121,7 +123,7 @@ export default function Learning() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-5">
-          {GROUPS.map(({ icon: Icon, title, items }) => (
+          {GROUPS.map(({ icon: Icon, title, items, hideNumber }) => (
             <div
               key={title}
               className="glass rounded-[2rem] p-7 md:p-8 reveal"
@@ -143,7 +145,12 @@ export default function Learning() {
               </div>
               <ul className="space-y-5">
                 {items.map((it) => (
-                  <Bar key={it.name} {...it} animate={animate} />
+                  <Bar
+                    key={it.name}
+                    {...it}
+                    animate={animate}
+                    hideNumber={hideNumber}
+                  />
                 ))}
               </ul>
             </div>
