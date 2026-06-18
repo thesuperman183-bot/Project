@@ -4,13 +4,13 @@
 
 :root {
     --bg: #F8FAF9;
-    --text: #1A362B;
-    --text-2: #4A665A;
-    --accent: #7A9E9F;
+    --text: #0F2A20;
+    --text-2: #1F3A2E;
+    --accent: #4F7C7D;
     --glass: rgba(255, 255, 255, 0.45);
     --glass-border: rgba(255, 255, 255, 0.65);
-    --glow: rgba(122, 158, 159, 0.35);
-    --shadow: 0 8px 32px rgba(26, 54, 43, 0.08);
+    --glow: rgba(79, 124, 125, 0.35);
+    --shadow: 0 8px 32px rgba(15, 42, 32, 0.10);
 }
 
 .dark {
