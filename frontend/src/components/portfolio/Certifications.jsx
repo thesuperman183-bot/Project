@@ -1,107 +1,109 @@
-import { Award, Clock } from "lucide-react";
+import React, { useState } from "react";
 
-const CERTS = [
+const certificationsData = [
+  // --- TOP 3 SHOWING ON FRONT ---
   {
-    title: "Python Quick Start",
+    id: 1,
+    title: "Hacktoberfest Hack Day Tumakur x upGrad",
+    issuer: "Hacktoberfest / MLH x DEV",
+    date: "October 24, 2026",
+    image: "/hacktoberfest.png"
+  },
+  {
+    id: 2,
+    title: "Qiskit Global Summer School 2026 - Quantum Excellence (Advanced)",
+    issuer: "IBM Quantum",
+    date: "2026",
+    image: "/qiskit.jpg"
+  },
+  {
+    id: 3,
+    title: "Foundational Math for Machine Learning",
     issuer: "LinkedIn Learning",
-    image:
-      "https://customer-assets.emergentagent.com/job_future-researcher/artifacts/s90hpb1m_CertificateOfCompletion_Python%20Quick%20Start%20%281%29_page-0001.jpg",
+    date: "Jul 05, 2026",
+    image: "/foundational-math.jpg"
+  },
+  // --- HIDDEN UNDER 'SEE ALL' ---
+  {
+    id: 4,
+    title: "Machine Learning Foundations: Linear Algebra",
+    issuer: "LinkedIn Learning",
+    date: "Jun 20, 2026",
+    image: "/ml-linear-algebra.jpg"
   },
   {
-    title: "Advance Diploma in Computer Application",
-    issuer: "Lenify CSE · MSME · Digital India",
-    image:
-      "https://customer-assets.emergentagent.com/job_future-researcher/artifacts/asjtpnjd_certificate-ADITYA-ANAND-SO-BASHISHTH-KUMAR-SINGH-CNPLPMFJCQ%20%281%29_page-0001.jpg",
+    id: 5,
+    title: "Machine Learning Foundations: Calculus",
+    issuer: "LinkedIn Learning",
+    date: "Jun 21, 2026",
+    image: "/ml-calculus.jpg"
   },
+  {
+    id: 6,
+    title: "Machine Learning Foundations: Probability",
+    issuer: "LinkedIn Learning",
+    date: "Jun 23, 2026",
+    image: "/ml-probability.jpg"
+  },
+  {
+    id: 7,
+    title: "Machine Learning Foundations: Statistics",
+    issuer: "LinkedIn Learning",
+    date: "Jul 05, 2026",
+    image: "/ml-statistics.jpg"
+  },
+  {
+    id: 8,
+    title: "Learning GitHub",
+    issuer: "LinkedIn Learning",
+    date: "Jul 17, 2026",
+    image: "/learning-github.jpg"
+  }
 ];
 
 export default function Certifications() {
+  const [showAll, setShowAll] = useState(false);
+
+  const displayedCerts = showAll
+    ? certificationsData
+    : certificationsData.slice(0, 3);
+
   return (
-    <section
-      id="certifications"
-      data-testid="certifications-section"
-      className="section"
-    >
+    <section id="certifications" className="py-16 px-6 reveal">
       <div className="max-w-6xl mx-auto">
-        <div className="reveal mb-12">
-          <p
-            className="font-display uppercase tracking-[0.32em] text-xs mb-4"
-            style={{ color: "var(--accent)" }}
-          >
-            04 · Proof
-          </p>
-          <h2
-            className="font-display glow-text text-4xl sm:text-5xl font-light tracking-tight"
-            data-testid="certifications-title"
-          >
-            Achievements &amp; Certifications
-          </h2>
+        <h2 className="text-3xl font-bold mb-8 text-center">
+          Achievements & Certifications
+        </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {displayedCerts.map((cert) => (
+            <div
+              key={cert.id}
+              className="border border-gray-700/50 rounded-xl p-4 bg-gray-900/40 shadow-lg flex flex-col justify-between"
+            >
+              <div>
+                <img
+                  src={cert.image}
+                  alt={cert.title}
+                  className="w-full h-48 object-cover rounded-lg mb-4"
+                />
+                <h3 className="font-semibold text-lg">{cert.title}</h3>
+                <p className="text-sm text-gray-400 mt-1">{cert.issuer}</p>
+              </div>
+              <span className="text-xs text-gray-500 mt-3 block">
+                {cert.date}
+              </span>
+            </div>
+          ))}
         </div>
 
-        <div className="grid md:grid-cols-3 gap-5">
-          {CERTS.map((c) => (
-            <article
-              key={c.title}
-              data-testid={`certificate-${c.title.toLowerCase().replace(/\s+/g, "-")}`}
-              className="glass rounded-[2rem] p-4 reveal group transition-transform hover:-translate-y-1"
-            >
-              <div className="rounded-[1.5rem] overflow-hidden bg-white">
-                <img
-                  src={c.image}
-                  alt={c.title}
-                  className="w-full h-48 object-cover object-top group-hover:scale-[1.03] transition-transform duration-700"
-                  loading="lazy"
-                />
-              </div>
-              <div className="p-3 pt-5">
-                <div className="flex items-center gap-2 mb-2">
-                  <Award size={14} style={{ color: "var(--accent)" }} />
-                  <span
-                    className="text-[11px] uppercase tracking-wider"
-                    style={{ color: "var(--text-2)" }}
-                  >
-                    {c.issuer}
-                  </span>
-                </div>
-                <h3
-                  className="font-display text-lg font-medium leading-snug"
-                  style={{ color: "var(--text)" }}
-                >
-                  {c.title}
-                </h3>
-              </div>
-            </article>
-          ))}
-
-          {/* Coming soon */}
-          <article
-            data-testid="certificate-coming-soon"
-            className="rounded-[2rem] p-4 reveal border border-dashed flex items-center justify-center text-center min-h-[260px]"
-            style={{
-              borderColor: "var(--glass-border)",
-              background:
-                "linear-gradient(135deg, var(--glass), rgba(255,255,255,0.05))",
-              backdropFilter: "blur(14px)",
-            }}
+        <div className="text-center mt-10">
+          <button
+            onClick={() => setShowAll(!showAll)}
+            className="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition"
           >
-            <div className="px-4">
-              <div
-                className="inline-flex items-center justify-center w-12 h-12 rounded-2xl glass-soft mb-4 mx-auto"
-                style={{ color: "var(--accent)" }}
-              >
-                <Clock size={20} />
-              </div>
-              <h3
-                className="font-display text-lg font-medium mb-2"
-                style={{ color: "var(--text)" }}
-              >
-                More on the way
-              </h3>
-              <p className="text-sm" style={{ color: "var(--text-2)" }}>
-                More achievements and certifications are currently in progress.
-              </p>
-            </div>
-          </article>
+            {showAll ? "Show Less" : `See All (${certificationsData.length})`}
+          </button>
         </div>
       </div>
     </section>
