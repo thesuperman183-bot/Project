@@ -51,9 +51,9 @@ function App() {
         <Strengths />
         <Learning />
         <Certifications />
+        <Projects />
         <WhyMe />
         <Roadmap />
-        <Projects />
         <Contact />
       </main>
       <Footer />
